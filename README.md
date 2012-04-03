@@ -24,14 +24,14 @@ together with documentation guides and dedicated website.
 
 With Leiningen:
 
-    [clojurewerkz/mailer "1.0.0-alpha1"]
+    [clojurewerkz/mailer "1.0.0-alpha2"]
 
 With Maven:
 
     <dependency>
       <groupId>clojurewerkz</groupId>
       <artifactId>mailer</artifactId>
-      <version>1.0.0-alpha1</version>
+      <version>1.0.0-alpha2</version>
     </dependency>
 
 
