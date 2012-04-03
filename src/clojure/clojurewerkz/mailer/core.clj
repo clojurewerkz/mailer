@@ -55,6 +55,10 @@
   [mode]
   (alter-var-root (var *delivery-mode*) (constantly mode)))
 
+(defn defaults!
+  [m]
+  (alter-var-root (var *message-defaults*) (constantly m)))
+
 (defmacro with-delivery-mode
   [mode & body]
   `(binding [*delivery-mode* ~mode]
