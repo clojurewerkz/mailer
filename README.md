@@ -113,20 +113,9 @@ suite. Once documentation site is up, we will update this document.
 To subscribe for announcements of releases, important changes and so on, please follow [@ClojureWerkz](https://twitter.com/#!/clojurewerkz) on Twitter.
 
 
-
-## Continuous Integration
-
-[![Continuous Integration status](https://secure.travis-ci.org/clojurewerkz/mailer.png)](http://travis-ci.org/clojurewerkz/mailer)
-
-
-CI is hosted by [travis-ci.org](http://travis-ci.org)
-
-
 ## Supported Clojure versions
 
 Mailer is built from the ground up for Clojure 1.3 and up.
-
-
 
 
 ## Mailer Is a ClojureWerkz Project
@@ -134,6 +123,12 @@ Mailer is built from the ground up for Clojure 1.3 and up.
 Mailer is part of the group of libraries known as ClojureWerkz, together with
 [Neocons](https://github.com/michaelklishin/neocons), [Monger](https://github.com/michaelklishin/monger), [Langohr](https://github.com/michaelklishin/langohr), [Elastisch](https://github.com/clojurewerkz/elastisch), [Quartzite](https://github.com/michaelklishin/quartzite) and several others.
 
+
+## Continuous Integration
+
+[![Continuous Integration status](https://secure.travis-ci.org/clojurewerkz/mailer.png)](http://travis-ci.org/clojurewerkz/mailer)
+
+CI is hosted by [travis-ci.org](http://travis-ci.org)
 
 
 ## Development
