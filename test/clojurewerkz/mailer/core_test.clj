@@ -22,7 +22,7 @@
 (deftest test-rendering-of-resource-template
   (is (= "Hello, Joe!" (render "templates/hello.mustache" {:name "Joe"}))))
 
-(deftest test-rendering-of-resource-template
+(deftest test-rendering-of-resource-template-with-conditions
   (is (= "Hello, Joe!\n" (render "templates/conditional_hello.mustache" {:person {:name "Joe"}}))))
 
 
