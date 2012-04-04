@@ -93,9 +93,10 @@
 (defn deliver-email
   "Delivers a mail message using delivery mode specified by the *delivery-mode* var. Body is rendered from a given template."
   [m ^String template data]
-  (if-let [f (get @delivery-modes *delivery-mode*)]
-    (f m template data)
-    (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*)))))
+  (io!
+    (if-let [f (get @delivery-modes *delivery-mode*)]
+      (f m template data)
+      (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*))))))
 
 
 
