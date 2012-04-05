@@ -1,4 +1,4 @@
-(defproject clojurewerkz/mailer "1.0.0-SNAPSHOT"
+(defproject clojurewerkz/mailer "1.0.0-alpha3"
   :description "An ActionMailer-inspired mailer library. Combines Postal, Clostache, some conventions and support for multiple delivery modes"
   :url "https://github.com/clojurewerkz/mailer"
   :license {:name "Eclipse Public License"
