@@ -4,6 +4,8 @@
 
 (delivery-mode! :test)
 
+(use-fixtures :each reset-deliveries!)
+
 ;;
 ;; Unknown delivery modes
 ;;
@@ -60,6 +62,17 @@
     (deliver-email {:from "Tom <tom@giove.local>" :to "joe@giove.local"}
                    "templates/hello.mustache" {:name "Joe"}))
   (is (= 2 (count @deliveries))))
+
+(deftest test-reset-deliveries
+  (is (= 0 (count @deliveries)))
+  (with-delivery-mode :test
+    (deliver-email {:from "joe@giove.local" :to "Tom <tom@giove.local>"}
+                   "templates/hello.mustache" {:name "Tom"})
+    (deliver-email {:from "Tom <tom@giove.local>" :to "joe@giove.local"}
+                   "templates/hello.mustache" {:name "Joe"}))
+  (is (= 2 (count @deliveries)))
+  (reset-deliveries!)
+  (is (= 0 (count @deliveries))))
 
 
 ;;

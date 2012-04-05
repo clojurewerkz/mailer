@@ -99,6 +99,15 @@
       (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*))))))
 
 
+(defn reset-deliveries!
+  "Resets test mode deliveries. Typically this is performed before and after each test."
+  ([]
+     (reset! deliveries []))
+  ([f]
+     (reset-deliveries!)
+     (f)
+     (reset-deliveries!)))
+
 
 ;; register core delivery methods
 (register-delivery-mode :test     deliver-in-test-mode)
