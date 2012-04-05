@@ -41,7 +41,7 @@
   [m ^String template data]
   (send-message {} (build-email m template data)))
 
-(definline check-not-nil! [v m]
+(definline check-not-nil! [v ^String m]
   `(when (nil? ~v)
      (throw (IllegalArgumentException. ~m))))
 
@@ -82,7 +82,7 @@
      (render template {}))
   ([^String template data]
      (check-not-nil! template "Template resource name cannot be nil!")
-     (clostache/render (slurp (io/resource template)) data)))
+     (clostache/render-resource template data)))
 
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
