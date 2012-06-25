@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure             "1.3.0"]
                  [com.draines/postal              "1.7.1"]
                  [de.ubercode.clostache/clostache "1.3.0"]
-                 [clojurewerkz/support            "0.1.0-beta2"]
+                 [clojurewerkz/support            "0.5.0"]
                  [clojurewerkz/route-one          "1.0.0-beta1"]]
   :test-selectors {:default        (fn [m] (and (not (:time-consuming m))
                                                 (not (:http-auth m))))
