@@ -35,19 +35,25 @@
 
 (deftest test-building-messages
   (let [d        { :cc ["baz@bar.dom" "Quux <quux@bar.dom>"] }
-        expected {:from "fee@bar.dom"
-                  :to "Foo Bar <foo@bar.dom>"
-                  :cc ["baz@bar.dom" "Quux <quux@bar.dom>"]
-                  :subject "Hello"
-                  :body "Hello, Joe!"}]
+        expected-hdr {:from "fee@bar.dom"
+                      :to "Foo Bar <foo@bar.dom>"
+                      :cc ["baz@bar.dom" "Quux <quux@bar.dom>"]
+                      :subject "Hello"}
+        expected-content "Hello, Joe!"
+        expected-type "text/plain"]
     (with-delivery-mode :test
       (with-defaults d
-        (let [msg (build-email {:from    "fee@bar.dom"
-                                :to      "Foo Bar <foo@bar.dom>"
-                                :subject "Hello"}
-                               "templates/hello.mustache" {:name "Joe"})]
-          (doseq [[k v] expected]
-            (is (= v (k msg)))))))))
+        (let [email (build-email {:from    "fee@bar.dom"
+                                  :to      "Foo Bar <foo@bar.dom>"
+                                  :subject "Hello"}
+                                 "templates/hello.mustache" {:name "Joe"} 
+                                 :text/plain)
+              content (:content (first (:body email)))
+              type (:type (first (:body email)))]
+          (doseq [[k v] expected-hdr]
+            (is (= v (k email))))
+          (is (= content expected-content))
+          (is (= type expected-type)))))))
 
 
 ;;
