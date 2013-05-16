@@ -78,9 +78,17 @@ Mailer uses Mustache templates on the classpath and Postal mail message attribut
 (build-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "OMG everything is down!"}
   "email/templates/warning.mustache" {:name "Joe" :host "host3.megacorp.internal"})
 
-;; deliver mail, uses *delivery-mode* value to determine how exactly perform the delivery
+;;build a message using an HTML template, specify parameter mime type :text/html
+(build-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "OMG everything is down!"}
+  "email/templates/warning.html.mustache" {:name "Joe" :host "host3.megacorp.internal"} :text/html)
+
+;; deliver mail, uses *delivery-mode* value to determine how exactly perform the delivery, defaults to :text/plain
 (deliver-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "OMG everything is down!"}
   "email/templates/warning.mustache" {:name "Joe" :host "host3.megacorp.internal"})
+
+;; deliver mail, specify html content type
+(deliver-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "OMG everything is down!"}
+  "email/templates/warning.html.mustache" {:name "Joe" :host "host3.megacorp.internal"} :text/html)
 
 ;; alter message defaults, for example, From header
 (with-defaults { :from "Joe The Robot <robot@megacorp.internal>" :subject "[Do Not Reply] Warning! Achtung! Внимание!" }
