@@ -3,10 +3,10 @@
   :url "https://github.com/clojurewerkz/mailer"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure             "1.3.0"]
-                 [com.draines/postal              "1.7.1"]
+  :dependencies [[org.clojure/clojure             "1.5.1"]
+                 [com.draines/postal              "1.10.3"]
                  [de.ubercode.clostache/clostache "1.3.0"]
-                 [clojurewerkz/support            "0.5.0"]
+                 [clojurewerkz/support            "0.15.0"]
                  [clojurewerkz/route-one          "1.0.0-beta1"]]
   :test-selectors {:default        (fn [m] (and (not (:time-consuming m))
                                                 (not (:http-auth m))))
