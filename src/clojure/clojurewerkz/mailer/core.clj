@@ -30,16 +30,16 @@
 
 (declare build-email)
 (defn deliver-in-test-mode
-  [m ^String template data]
-  (swap! deliveries conj (build-email m template data)))
+  [m ^String template data content-type]
+  (swap! deliveries conj (build-email m template data content-type)))
 
 (defn deliver-with-smtp
-  [m ^String template data]
-  (send-message *delivery-settings* (build-email m template data)))
+  [m ^String template data content-type]
+  (send-message *delivery-settings* (build-email m template data content-type)))
 
 (defn deliver-with-sendmail
-  [m ^String template data]
-  (send-message {} (build-email m template data)))
+  [m ^String template data content-type]
+  (send-message {} (build-email m template data content-type)))
 
 (definline check-not-nil! [v ^String m]
   `(when (nil? ~v)
@@ -84,19 +84,26 @@
      (check-not-nil! template "Template resource name cannot be nil!")
      (clostache/render-resource template data)))
 
+(defn- mime-type-str
+  [content-type]
+  (str (namespace content-type) "/" (name content-type)))
+
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
-  ([m ^String template data]
-     (merge *message-defaults* m {:body (render template data)})))
+  ([m ^String template data content-type]
+     (merge *message-defaults* m {:body [{:content (render template data)
+                                          :type (mime-type-str content-type)}]})))
 
 
 (defn deliver-email
   "Delivers a mail message using delivery mode specified by the *delivery-mode* var. Body is rendered from a given template."
-  [m ^String template data]
-  (io!
-    (if-let [f (get @delivery-modes *delivery-mode*)]
-      (f m template data)
-      (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*))))))
+  ([m ^String template data]
+     (deliver-email m template data :text/plain))
+  ([m ^String template data content-type]
+     (io!
+      (if-let [f (get @delivery-modes *delivery-mode*)]
+        (f m template data content-type)
+        (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*)))))))
 
 
 (defn reset-deliveries!
