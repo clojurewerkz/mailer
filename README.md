@@ -23,33 +23,16 @@ Mailer is a moderately mature project, the API hasn't changed in over a year.
 
 With Leiningen:
 
-    [clojurewerkz/mailer "1.0.0-alpha3"]
+    [clojurewerkz/mailer "1.0.0"]
 
 With Maven:
 
     <dependency>
       <groupId>clojurewerkz</groupId>
       <artifactId>mailer</artifactId>
-      <version>1.0.0-alpha3</version>
+      <version>1.0.0</version>
     </dependency>
 
-
-### Snapshots
-
-If you are comfortable with using snapshots, snapshot artifacts are [released to Clojars](https://clojars.org/clojurewerkz/mailer) every 24 hours.
-
-With Leiningen:
-
-    [clojurewerkz/mailer "1.0.0-SNAPSHOT"]
-
-
-With Maven:
-
-    <dependency>
-      <groupId>clojurewerkz</groupId>
-      <artifactId>mailer</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
 
 
 ## Documentation
