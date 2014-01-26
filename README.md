@@ -128,8 +128,13 @@ Mailer requires Clojure 1.4+.
 
 ## Mailer Is a ClojureWerkz Project
 
-Mailer is part of the group of libraries known as ClojureWerkz, together with
-[Neocons](https://github.com/michaelklishin/neocons), [Monger](https://github.com/michaelklishin/monger), [Langohr](https://github.com/michaelklishin/langohr), [Elastisch](https://github.com/clojurewerkz/elastisch), [Quartzite](https://github.com/michaelklishin/quartzite) and several others.
+Mailer is part of the group of libraries known as ClojureWerkz,
+together with [Neocons](http://clojureneo4j.info),
+[Monger](http://clojuremongodb.info),
+[Langohr](http://clojurerabbitmq.info),
+[Elastisch](https://clojureelasticsearch.info),
+[Quartzite](https://github.com/michaelklishin/quartzite) and several
+others.
 
 
 ## Continuous Integration
