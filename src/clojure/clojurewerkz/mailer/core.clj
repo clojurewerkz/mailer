@@ -1,4 +1,5 @@
 (ns clojurewerkz.mailer.core
+  "Key library functionality: build and deliver email, render templates, et cetera."
   (:require [postal.message   :as msg]
             [clojure.java.io  :as io]
             [clostache.parser :as clostache]
