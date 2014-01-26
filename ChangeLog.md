@@ -1,4 +1,4 @@
-## Changes Betwee 1.0.0-alpha3 and 1.0.0-beta1
+## Changes Between 1.0.0-alpha3 and 1.0.0
 
 ### HTML Email Templates
 
@@ -19,4 +19,9 @@ for the majority of projects out there.
 
 ### Postal Upgrade
 
-Mailer now depends on Postal `1.10.3`.
+Mailer now depends on Postal `1.11.1`.
+
+
+### Clostache Upgrade
+
+Mailer now depends on Clostache `1.3.1`.
