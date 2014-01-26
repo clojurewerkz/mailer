@@ -123,7 +123,7 @@ To subscribe for announcements of releases, important changes and so on, please 
 
 ## Supported Clojure versions
 
-Mailer is built from the ground up for Clojure 1.3 and up.
+Mailer requires Clojure 1.4+.
 
 
 ## Mailer Is a ClojureWerkz Project
