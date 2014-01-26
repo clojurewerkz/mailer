@@ -1,8 +1,8 @@
 (ns clojurewerkz.mailer.core
   (:require [postal.message   :as msg]
             [clojure.java.io  :as io]
-            [clostache.parser :as clostache])
-  (:use [postal.core :only [send-message]]))
+            [clostache.parser :as clostache]
+            [postal.core :refer [send-message]]))
 
 ;;
 ;; Implementation
