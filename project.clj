@@ -7,7 +7,7 @@
                  [com.draines/postal              "1.10.3"]
                  [de.ubercode.clostache/clostache "1.3.1"]
                  [clojurewerkz/support            "0.15.0"]
-                 [clojurewerkz/route-one          "1.0.0-beta1"]]
+                 [clojurewerkz/route-one          "1.0.0"]]
   :test-selectors {:default        (fn [m] (and (not (:time-consuming m))
                                                 (not (:http-auth m))))
                    :time-consuming :time-consuming
