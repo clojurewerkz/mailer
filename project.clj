@@ -8,11 +8,7 @@
                  [de.ubercode.clostache/clostache "1.3.1"]
                  [clojurewerkz/support            "0.20.0"]
                  [clojurewerkz/route-one          "1.0.0"]]
-  :test-selectors {:default        (fn [m] (and (not (:time-consuming m))
-                                                (not (:http-auth m))))
-                   :time-consuming :time-consuming
-                   :integration    :integration
-                   :focus          :focus
+  :test-selectors {:focus          :focus
                    :all            (constantly true)}
   :source-paths ["src/clojure"]
   :profiles {:dev {:resource-paths ["test/resources"]}
