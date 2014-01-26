@@ -11,10 +11,9 @@ and a number of its own features and conventions to make delivering complex temp
  * Steal good parts from ActionMailer
 
 
-## This is a Work In Progress
+## Project Maturity
 
-Core Mailer APIs are stabilized but it is still a work in progress. Keep that in mind. 1.0 will be released in 2012
-together with documentation guides and dedicated website.
+Mailer is a moderately mature project, the API hasn't changed in over a year.
 
 
 
