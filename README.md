@@ -53,7 +53,7 @@ With Maven:
     </dependency>
 
 
-## Usage
+## Documentation
 
 Mailer uses Mustache templates on the classpath and Postal mail message attribute maps. Key functions are:
 
@@ -106,12 +106,6 @@ Mailer uses Mustache templates on the classpath and Postal mail message attribut
 ;; render a template
 (render "templates/hello.mustache" {:name "Joe"}) ;; => "Hello, Joe"
 ```
-
-
-## Documentation & Examples
-
-Mailer is a young project and documentation guides are not written yet (sorry!). 1.0 will not be released without doc guides. For code examples, see our test
-suite. Once documentation site is up, we will update this document.
 
 
 ## Community
