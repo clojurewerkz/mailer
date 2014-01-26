@@ -66,7 +66,7 @@ Mailer uses Mustache templates on the classpath and Postal mail message attribut
 
 ``` clojure
 (ns my-app
-  (:use [clojurewerkz.mailer.core :only [delivery-mode! with-settings with-defaults with-settings build-email deliver-email]]))
+  (:require [clojurewerkz.mailer.core :refer [delivery-mode! with-settings with-defaults with-settings build-email deliver-email]]))
 
 ;; set default delivery mode (:smtp, :sendmail or :test)
 (delivery-mode! :test)
