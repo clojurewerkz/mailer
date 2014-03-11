@@ -13,7 +13,7 @@
   :source-paths ["src/clojure"]
   :profiles {:dev {:resource-paths ["test/resources"]}
              :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}
-             :1.6 {:dependencies [[org.clojure/clojure "1.6.0-beta2"]]}
+             :1.6 {:dependencies [[org.clojure/clojure "1.6.0-rc1"]]}
              :master {:dependencies [[org.clojure/clojure "1.6.0-master-SNAPSHOT"]]}}
   :aliases { "all" ["with-profile" "dev:dev,1.4:dev,1.6:dev,master"] }
   :repositories {"clojure-releases" "http://build.clojure.org/releases"
