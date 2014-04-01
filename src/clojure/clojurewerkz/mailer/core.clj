@@ -98,11 +98,24 @@
   [content-type]
   (str (namespace content-type) "/" (name content-type)))
 
+(defprotocol ContentType
+  (get-content-type [value]))
+
+(extend-protocol ContentType
+  clojure.lang.Keyword
+    (get-content-type
+      [k]
+      (mime-type-str k))
+  java.lang.String
+    (get-content-type
+      [s]
+      s))
+
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
   ([m ^String template data content-type]
      (merge *message-defaults* m {:body [{:content (render template data)
-                                          :type (mime-type-str content-type)}]})))
+                                          :type (get-content-type content-type)}]})))
 
 
 (defn deliver-email
