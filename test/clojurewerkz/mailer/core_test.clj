@@ -56,6 +56,17 @@
           (is (= type expected-type)))))))
 
 
+
+(deftest test-content-type-keyword
+  (let [email (build-email {} "templates/hello.mustache" {} :text/html)
+        type (:type (first (:body email)))]
+      (is (= type "text/html"))))
+
+(deftest test-content-type-string
+  (let [email (build-email {} "templates/hello.mustache" {} "text/html")
+        type (:type (first (:body email)))]
+    (is (= type "text/html"))))
+
 ;;
 ;; Test Delivery
 ;;
