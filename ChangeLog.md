@@ -1,3 +1,18 @@
+## Changes Between 1.0.0 and 1.1.0
+
+### Content Type as a String
+
+Content type now can be provided as a string as well as a (predefined) keyword,
+e.g.
+
+``` clojure
+(build-email {} "templates/hello.mustache" {} "text/html")
+```
+
+Contributed by bpr.
+
+
+
 ## Changes Between 1.0.0-alpha3 and 1.0.0
 
 ### HTML Email Templates
