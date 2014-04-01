@@ -19,5 +19,8 @@
   :repositories {"clojure-releases" "http://build.clojure.org/releases"
                  "sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
                              :snapshots false
-                             :releases {:checksum :fail :update :always}}}
+                             :releases {:checksum :fail :update :always}}
+                 "sonatype-snapshots" {:url "http://oss.sonatype.org/content/repositories/snapshots"
+                                       :snapshots true
+                                       :releases {:checksum :fail :update :always}}}
   :global-vars {*warn-on-reflection* true})
