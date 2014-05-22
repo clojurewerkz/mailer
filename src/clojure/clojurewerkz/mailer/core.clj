@@ -111,11 +111,21 @@
       [s]
       s))
 
+(defn deep-merge-into
+  "Recursively merge maps applying into when there's a non-map. based on conjure.contrib/map_utils deep-merge-with"
+  [& maps]
+  (apply
+    (fn m [& maps]
+      (if (every? map? maps)
+        (apply merge-with m maps)
+        (apply into maps)))
+    maps))
+
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
   ([m ^String template data content-type]
-     (merge *message-defaults* m {:body [{:content (render template data)
-                                          :type (get-content-type content-type)}]})))
+     (deep-merge-into *message-defaults* m {:body [{:content (render template data)
+                                                    :type (get-content-type content-type)}]})))
 
 
 (defn deliver-email

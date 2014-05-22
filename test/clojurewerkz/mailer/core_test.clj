@@ -46,7 +46,7 @@
         (let [email (build-email {:from    "fee@bar.dom"
                                   :to      "Foo Bar <foo@bar.dom>"
                                   :subject "Hello"}
-                                 "templates/hello.mustache" {:name "Joe"} 
+                                 "templates/hello.mustache" {:name "Joe"}
                                  :text/plain)
               content (:content (first (:body email)))
               type (:type (first (:body email)))]
@@ -104,3 +104,18 @@
 ;;
 
 ;; TBD
+
+;;
+;; Merging
+;;
+
+(deftest test-merged-maps
+  (is (= {:body [:alternative
+                 {:type "text/plain" :content "test content"}
+                 {:type "text/html" :content "<p>content</p>"}]
+          :subject "subj"
+          :to "person@anywhere.com"}
+         (deep-merge-into {:body [:alternative {:content "test content" :type "text/plain"}]
+                           :subject "subj"
+                           :to "person@anywhere.com"}
+                          {:body [{:content "<p>content</p>" :type "text/html"}]}))))
