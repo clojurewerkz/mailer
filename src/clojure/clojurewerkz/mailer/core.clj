@@ -121,11 +121,21 @@
         (apply into maps)))
     maps))
 
+(defn get-content-with-type
+  "Helper which renders contents and assigns content-type."
+  [template data content-type]
+  {:content (render template data)
+   :type (get-content-type content-type)})
+
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
-  ([m ^String template data content-type]
-     (deep-merge-into *message-defaults* m {:body [{:content (render template data)
-                                                    :type (get-content-type content-type)}]})))
+  [m ^String template data content-type & more-data]
+  (let [contents (map (partial apply get-content-with-type )
+                      (partition-all 3 (concat [template data content-type] more-data)))]
+    (deep-merge-into *message-defaults* m
+                     {:body (if (empty? more-data)
+                              (first contents)
+                              (cons :alternative contents))})))
 
 
 (defn deliver-email
