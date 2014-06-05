@@ -134,7 +134,7 @@
                       (partition-all 3 (concat [template data content-type] more-data)))]
     (deep-merge-into *message-defaults* m
                      {:body (if (empty? more-data)
-                              (first contents)
+                              contents
                               (cons :alternative contents))})))
 
 
