@@ -1,5 +1,12 @@
 ## Changes Between 1.0.0 and 1.1.0
 
+### Support for alternative email bodies
+
+`build-email` and `deliver-email` now take extra set of template,
+data, content-type for alternative email body. This is useful for
+supplying alternative plain-text body in addition to main HTML
+body of the message.
+
 ### Clojure 1.6 By Default
 
 The project now depends on `org.clojure/clojure` version `1.6.0`. It is
