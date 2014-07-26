@@ -40,16 +40,16 @@
 
 (declare build-email)
 (defn deliver-in-test-mode
-  [m ^String template data content-type]
-  (swap! deliveries conj (build-email m template data content-type)))
+  [m ^String template data content-type & more-data]
+  (swap! deliveries conj (apply build-email m template data content-type more-data)))
 
 (defn deliver-with-smtp
-  [m ^String template data content-type]
-  (send-message *delivery-settings* (build-email m template data content-type)))
+  [m ^String template data content-type & more-data]
+  (send-message *delivery-settings* (apply build-email m template data content-type more-data)))
 
 (defn deliver-with-sendmail
-  [m ^String template data content-type]
-  (send-message {} (build-email m template data content-type)))
+  [m ^String template data content-type & more-data]
+  (send-message {} (apply build-email m template data content-type more-data)))
 
 (definline check-not-nil! [v ^String m]
   `(when (nil? ~v)
@@ -121,21 +121,31 @@
         (apply into maps)))
     maps))
 
+(defn get-content-with-type
+  "Helper which renders contents and assigns content-type."
+  [template data content-type]
+  {:content (render template data)
+   :type (get-content-type content-type)})
+
 (defn build-email
   "Builds up a mail message (returned as an immutable map). Body is rendered from a given template."
-  ([m ^String template data content-type]
-     (deep-merge-into *message-defaults* m {:body [{:content (render template data)
-                                                    :type (get-content-type content-type)}]})))
+  [m ^String template data content-type & more-data]
+  (let [contents (map (partial apply get-content-with-type )
+                      (partition-all 3 (concat [template data content-type] more-data)))]
+    (deep-merge-into *message-defaults* m
+                     {:body (if (empty? more-data)
+                              contents
+                              (cons :alternative contents))})))
 
 
 (defn deliver-email
   "Delivers a mail message using delivery mode specified by the *delivery-mode* var. Body is rendered from a given template."
   ([m ^String template data]
      (deliver-email m template data :text/plain))
-  ([m ^String template data content-type]
+  ([m ^String template data content-type & more-data]
      (io!
       (if-let [f (get @delivery-modes *delivery-mode*)]
-        (f m template data content-type)
+        (apply f m template data content-type more-data)
         (throw (IllegalArgumentException. (format  "%s delivery mode implementation is not registered. Possibly you misspelled %s?" *delivery-mode* *delivery-mode*)))))))
 
 
