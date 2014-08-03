@@ -19,6 +19,19 @@ Mailer is a moderately mature project, the API hasn't changed in over a year.
 
 ## Maven Artifacts
 
+Mailer artifacts are [released to Clojars](https://clojars.org/clojurewerkz/mailer).
+If you are using Maven, add the following repository definition to your
+
+`pom.xml`:
+
+``` xml
+<repository>
+  <id>clojars.org</id>
+  <url>http://clojars.org/repo</url>
+</repository>
+```
+
+
 ### The Most Recent Release
 
 With Leiningen:
