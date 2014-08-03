@@ -7,6 +7,14 @@ data, content-type for alternative email body. This is useful for
 supplying alternative plain-text body in addition to main HTML
 body of the message.
 
+``` clojure
+(build-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "Hello!"}
+             "templates/html_hello.mustache" {:name "Joe"} :text/html
+             "templates/hello.mustache" {:name "Joe"} :text/plain)
+```
+
+Contributed by Lei.
+
 ### Clojure 1.6 By Default
 
 The project now depends on `org.clojure/clojure` version `1.6.0`. It is
