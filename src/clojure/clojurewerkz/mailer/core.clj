@@ -55,7 +55,6 @@
   `(when (nil? ~v)
      (throw (IllegalArgumentException. ~m))))
 
-
 ;;
 ;; API
 ;;
@@ -92,7 +91,11 @@
      (render template {}))
   ([^String template data]
      (check-not-nil! template "Template resource name cannot be nil!")
-     (clostache/render-resource template data)))
+     (try
+       (clostache/render-resource template data)
+       (catch Exception e
+         (throw (RuntimeException. (str "Failed rendering email with template: '" template "', template might not exist.")
+                                   e))))))
 
 (defn- mime-type-str
   [content-type]
