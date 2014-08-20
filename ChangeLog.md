@@ -1,3 +1,12 @@
+## Changes Between 1.1.0 and 1.2.0
+
+### Improved Template Rendering Exceptions
+
+Template rendering exceptions now have a better error message.
+
+Contributed by Lei.
+
+
 ## Changes Between 1.0.0 and 1.1.0
 
 ### Support for alternative email bodies
