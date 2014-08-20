@@ -36,14 +36,14 @@ If you are using Maven, add the following repository definition to your
 
 With Leiningen:
 
-    [clojurewerkz/mailer "1.1.0"]
+    [clojurewerkz/mailer "1.2.0"]
 
 With Maven:
 
     <dependency>
       <groupId>clojurewerkz</groupId>
       <artifactId>mailer</artifactId>
-      <version>1.1.0</version>
+      <version>1.2.0</version>
     </dependency>
 
 
