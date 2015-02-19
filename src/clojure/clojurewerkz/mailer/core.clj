@@ -11,7 +11,7 @@
   "Key library functionality: build and deliver email, render templates, et cetera."
   (:require [postal.message   :as msg]
             [clojure.java.io  :as io]
-            [clostache.parser :as clostache]
+            [stencil.core     :as stencil]
             [postal.core :refer [send-message]]))
 
 ;;
@@ -92,7 +92,7 @@
   ([^String template data]
      (check-not-nil! template "Template resource name cannot be nil!")
      (try
-       (clostache/render-resource template data)
+       (stencil/render-file template data)
        (catch Exception e
          (throw (RuntimeException. (str "Failed rendering email with template: '" template "', template might not exist.")
                                    e))))))

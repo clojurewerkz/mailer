@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure             "1.6.0"]
                  [com.draines/postal              "1.11.3"]
-                 [de.ubercode.clostache/clostache "1.3.1"]
+                 [stencil                         "0.3.5"]
                  [clojurewerkz/support            "1.1.0"]
                  [clojurewerkz/route-one          "1.1.0"]]
   :test-selectors {:focus          :focus
