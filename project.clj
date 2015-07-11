@@ -13,7 +13,7 @@
   :source-paths ["src/clojure"]
   :profiles {:dev {:resource-paths ["test/resources"]}
              :1.7 {:dependencies [[org.clojure/clojure "1.7.0"]]}
-             :master {:dependencies [[org.clojure/clojure "1.7.0-master-SNAPSHOT"]]}}
+             :master {:dependencies [[org.clojure/clojure "1.8.0-master-SNAPSHOT"]]}}
   :aliases { "all" ["with-profile" "dev:dev,1.7:dev,master"] }
   :repositories {"clojure-releases" "http://build.clojure.org/releases"
                  "sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
