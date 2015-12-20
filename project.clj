@@ -3,7 +3,7 @@
   :url "https://github.com/clojurewerkz/mailer"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure             "1.6.0"]
+  :dependencies [[org.clojure/clojure             "1.7.0"]
                  [com.draines/postal              "1.11.3"]
                  [stencil                         "0.3.5"]
                  [clojurewerkz/support            "1.1.0"]
@@ -12,9 +12,9 @@
                    :all            (constantly true)}
   :source-paths ["src/clojure"]
   :profiles {:dev {:resource-paths ["test/resources"]}
-             :1.7 {:dependencies [[org.clojure/clojure "1.7.0"]]}
+             :1.8 {:dependencies [[org.clojure/clojure "1.8.0-RC4"]]}
              :master {:dependencies [[org.clojure/clojure "1.8.0-master-SNAPSHOT"]]}}
-  :aliases { "all" ["with-profile" "dev:dev,1.7:dev,master"] }
+  :aliases { "all" ["with-profile" "dev:dev,1.8:dev,master"] }
   :repositories {"clojure-releases" "http://build.clojure.org/releases"
                  "sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
                              :snapshots false
