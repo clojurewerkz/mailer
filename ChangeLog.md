@@ -1,3 +1,14 @@
+## Changes Between 1.2.0 and 1.3.0
+
+### Clojure 1.7 By Default
+
+The project now depends on `org.clojure/clojure` version `1.7.0`. It is
+still compatible with Clojure 1.4 and if your `project.clj` depends on
+a different version, it will be used, but 1.7 is the default now.
+
+
+
+
 ## Changes Between 1.1.0 and 1.2.0
 
 ### Improved Template Rendering Exceptions
