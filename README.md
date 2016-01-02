@@ -157,6 +157,6 @@ a pull request on Github.
 
 ## License
 
-Copyright © 2012-2015 Michael S. Klishin, Alex Petrov, and the ClojureWerkz team.
+Copyright © 2012-2016 Michael S. Klishin, Alex Petrov, and the ClojureWerkz team.
 
 Distributed under the Eclipse Public License, the same as Clojure.
