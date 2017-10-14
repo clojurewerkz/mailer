@@ -13,7 +13,7 @@ and a number of its own features and conventions to make delivering complex temp
 
 ## Project Maturity
 
-Mailer is a moderately mature project, the API hasn't changed in over a year.
+Mailer is a moderately mature project, the API hasn't changed in several years.
 
 
 
@@ -157,6 +157,6 @@ a pull request on Github.
 
 ## License
 
-Copyright © 2012-2016 Michael S. Klishin, Alex Petrov, and the ClojureWerkz team.
+Copyright © 2012-2017 Michael S. Klishin, Alex Petrov, and the ClojureWerkz team.
 
 Distributed under the Eclipse Public License, the same as Clojure.
