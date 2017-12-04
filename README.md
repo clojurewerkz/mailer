@@ -91,9 +91,9 @@ Mailer uses Mustache templates on the classpath and Postal mail message attribut
   "email/templates/warning.html.mustache" {:name "Joe" :host "host3.megacorp.internal"} :text/html)
 
 ;; deliver mail using alternative message body, specify alternative plain-text body in addition to main HTML body of the message
-(build-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "Hello!"}
-             "templates/html_hello.mustache" {:name "Joe"} :text/html
-             "templates/hello.mustache" {:name "Joe"} :text/plain)
+(deliver-email {:from "Joe The Robot", :to ["ops@megacorp.internal" "oncall@megacorp.internal"] :subject "Hello!"}
+               "templates/html_hello.mustache" {:name "Joe"} :text/html
+               "templates/hello.mustache" {:name "Joe"} :text/plain)
 
 ;; alter message defaults, for example, From header
 (with-defaults { :from "Joe The Robot <robot@megacorp.internal>" :subject "[Do Not Reply] Warning! Achtung! Внимание!" }
